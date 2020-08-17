@@ -1,0 +1,44 @@
+.gh-sign-up
+  display: flex
+  justify-content: center
+  form
+    display: flex
+    font-family: $body-family
+    input[type="email"]
+      background-color: white
+      border: none
+      box-shadow: none
+      font-size: 1rem
+      padding: 1rem
+      -webkit-appearance: none
+      appearance: none
+      border-radius: 0
+    input[type="submit"]
+      background-color: $gh-orange
+      border: none
+      box-shadow: none
+      display: block
+      padding: 1rem 2rem
+      font-family: $family-heading
+      font-size: 1.5rem
+      text-transform: uppercase
+      cursor: pointer
+      -webkit-appearance: none
+      appearance: none
+      border-radius: 0
+      +default-transition
+      &:disabled
+        opacity: 0.5
+      &:hover
+        background-color: darken($gh-orange, 5%)
+
+.gh-sign-up-disclaimer-text
+  max-width: 300px
+  color: white
+  line-height: 1.1
+  margin-bottom: 1rem
+  font-weight: bold
+  font-size: 0.9rem
+
+  +touch
+    max-width: 100%

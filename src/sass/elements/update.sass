@@ -1,0 +1,41 @@
+.update-list
+  max-width: 600px
+  margin: 0 auto
+
+body .update-preview
+  padding: 4rem 0
+  border-bottom: 2px solid black
+  display: block
+  color: black
+  +default-transition
+  &:hover
+    opacity: 0.8
+  &:first-child
+    padding-top: 0 !important
+  &:last-child
+    border-bottom: none !important
+  h2
+    font-size: 4rem
+    text-align: center
+    +mobile
+      font-size: 3rem
+
+.author-date-info
+  max-width: 400px
+  margin: 0 auto
+  display: flex
+  justify-content: space-between
+  align-items: center
+  font-size: 1rem
+  
+  &--inverted
+    color: white
+
+  .adi-author
+    display: flex
+    justify-content: center
+    align-items: center
+    &__name
+      padding-left: 0.5rem
+  .gatsby-image-wrapper
+    border-radius: 50%

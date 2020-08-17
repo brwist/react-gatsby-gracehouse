@@ -1,0 +1,235 @@
+@import "header"
+@import "nav"
+@import "top-links"
+@import "our-mission"
+@import "whats-on"
+@import "footer"
+@import "~hamburgers/_sass/hamburgers/hamburgers.scss"
+@import "sign-up"
+@import "update"
+@import "whats-on-item"
+@import "now-playing"
+
+*:focus
+  outline: none
+
+.container
+  padding-left: 1rem
+  padding-right: 1rem
+
+h2, h3
+  +mobile
+    line-height: 1.1
+
+.prevent-scroll
+  overflow-y: hidden
+  max-height: 100vh
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after
+  background-color: white
+
+.hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::before, .hamburger.is-active .hamburger-inner::after
+  background-color: white
+
+.hamburger.is-active:hover
+  opacity: 1
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after
+  height: 3px
+  border-radius: 0
+
+.hamburger:hover
+  opacity: 1
+
+.generic-header
+  background-color: black
+  padding-top: 7.5rem
+  
+
+.generic-body
+  padding: 8rem 0
+  font-size: 1.1rem
+
+  +mobile
+    padding: 4rem 0
+
+  h1
+    color: black
+    font-family: $family-heading
+    font-size: 5rem
+    text-transform: uppercase
+    text-align: center
+    margin-bottom: 3rem
+    line-height: 1
+
+    +mobile
+      font-size: 3.5rem
+
+  h2
+    font-family: $family-heading
+    font-size: 2rem
+    text-transform: uppercase
+    line-height: 1
+    margin-bottom: 1rem
+
+.generic-link
+  font-weight: bold
+  color: $gh-orange
+
+#tithely-web-widget-wrapper
+  min-height: 75vh
+
+.tithely-give-btn
+  $size: 100px
+  font-family: $family-heading
+  font-size: 2rem
+  text-transform: uppercase
+  background-color: black
+  text-align: center
+  color: white
+  box-shadow: none
+  border: none
+  outline: none
+  width: $size
+  height: $size
+  border-radius: 50%
+  line-height: $size
+  animation: shadow-pulse 1s infinite
+  transform: scale(1)
+  transition: transform $animation-speed-default $animation-cubic-beizer
+  cursor: pointer
+  &:hover
+    transform: scale(1.1)
+
+.generic-rich-text
+  max-width: 700px
+  margin: 0 auto
+
+  p
+    margin-bottom: 1rem
+
+.Toaster__alert_text
+  font-family: $body-family !important
+
+html .rich-text-body
+  ul, ol
+    margin-bottom: 2rem
+    padding-left: 1.5rem
+    li
+      margin-bottom: 2rem
+      list-style: disc
+  ol
+    padding-left: 1rem
+  h1
+    text-align: left
+    font-family: $family-heading
+    text-transform: uppercase
+    font-size: 3rem
+    margin-top: 3rem
+    margin-bottom: 1rem
+  h2
+    text-align: left
+    font-family: $family-heading
+    text-transform: uppercase
+    font-size: 2rem
+    margin-top: 2rem
+    margin-bottom: 1rem
+  h3
+    font-family: $family-heading
+    text-transform: uppercase
+    font-size: 1.5rem
+    margin-top: 1.5rem
+    margin-bottom: 1rem
+
+.text-bold
+  font-weight: bold
+
+.m-b-sm
+  margin-bottom: 1rem
+
+.pastoral-team
+  display: flex
+  justify-content: space-around
+
+  .pastor
+    text-align: center
+    font-weight: bold
+    font-size: 1.25rem
+    position: relative
+    line-height: 1.1
+    margin: 1rem
+    flex: 0 1 100%
+
+    +desktop
+      max-width: 210px
+      margin-left: auto
+      margin-right: auto
+
+    .gatsby-image-wrapper
+      margin-bottom: 0.75rem
+
+    +touch
+      font-size: 1rem
+
+    &:after
+      content: ''
+      width: 30px
+      height: 30px
+      background-image: url(../../src/img/black-chevon-right.svg)
+      position: absolute
+      top: -1.25rem
+      right: -1.25rem
+      background-size: contain
+      background-repeat: no-repeat
+
+      +touch
+        width: 20px
+        height: 20px
+        top: -1rem
+        right: -1rem
+
+.text-center
+  text-align: center !important
+
+.rich-text-body .h1
+  text-align: left
+  font-family: $family-heading
+  text-transform: uppercase
+  font-size: 3rem
+  margin-bottom: 3rem
+  text-align: center
+
+.gh-home-disclaimer
+  padding: 8rem
+  text-align: center
+  font-size: 1.5rem
+  border-bottom: 3px solid black
+
+  +mobile
+    padding: 3rem 1rem
+    font-size: 1rem
+
+  h2
+    font-family: $family-heading
+    text-transform: uppercase
+    font-size: 4rem
+    margin-bottom: 3rem
+    text-align: center
+
+    +mobile
+      font-size: 3rem
+
+  p
+    margin-bottom: 1rem
+
+a.generic-link, .generic-rich-text a
+  font-weight: bold
+  color: $gh-orange
+  +default-transition
+  &:hover
+    color: darken($gh-orange, 5%)
+
+.container-sm
+  max-width: 700px
+  margin-left: auto
+  margin-right: auto

@@ -1,0 +1,81 @@
+body .whats-on-item
+  margin: 6rem auto
+  max-width: 700px
+  text-align: center
+
+  &:first-child
+    margin-top: 0
+  &:last-child
+    margin-bottom: 0
+
+  h2
+    font-size: 4rem !important
+    margin-bottom: 0.5rem
+
+    +mobile
+      font-size: 3rem !important
+
+  p
+    font-size: 1.25rem
+
+  &--compact 
+    text-align: left
+    padding: 2rem
+    margin: 9rem 0
+    +mobile
+      text-align: center !important
+
+    +mobile
+      margin: 2rem 0
+
+    h2
+      text-align: left !important
+      font-size: 2.5rem !important
+      +mobile
+        text-align: center !important
+
+    p
+      font-size: 1.25rem !important
+      +mobile
+        text-align: center !important
+
+  &--rtl
+    text-align: right !important
+    +mobile
+      text-align: center !important
+    h2
+      text-align: right !important
+      +mobile
+        text-align: center !important
+
+.whats-on-button
+  margin-top: 1.5rem
+  display: inline-block
+  padding: 1rem 2rem
+  background-color: $gh-grey
+  color: white
+  font-family: $family-heading
+  text-transform: uppercase
+  font-size: 1.5rem
+
+  &--active
+    background-color: $black
+    color: white
+    +default-transition
+
+    &:hover
+      color: white
+      background-color: lighten($black, 5%)
+
+  &--live
+    background-color: $gh-orange
+    color: black
+    animation: shadow-pulse 1s infinite
+    cursor: pointer
+    transform: scale(1)
+    +default-transition
+
+    &:hover
+      transform: scale(1.1)
+    
+  

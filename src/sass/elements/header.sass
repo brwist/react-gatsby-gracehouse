@@ -1,0 +1,92 @@
+.gh-header
+  padding: 6rem 0
+  background-color: black
+  min-height: 95vh
+  display: flex
+  justify-content: center
+  align-items: center
+  overflow: hidden
+  position: relative
+
+  .images
+    $width: 500px
+
+    width: $width
+    position: absolute
+    left: 50%
+    transform: translateX(-100%) translateY(-215px)
+    top: 0
+    overflow: hidden
+
+    .gatsby-image-wrapper
+      opacity: 1
+      margin: 30px 0
+
+      $top-bottom-opacity: 0.3
+
+      &:first-child
+        opacity: $top-bottom-opacity
+      &:last-child
+        opacity: $top-bottom-opacity
+
+  h1
+    font-family: $family-heading
+    font-size: 10rem
+    text-transform: uppercase
+    color: white
+    max-width: 500px
+    line-height: 0.8
+    transform: translateX(40%)
+
+    span
+      opacity: 0
+      position: relative
+      top: 40px
+
+    span.alt
+      -webkit-text-stroke: 1.5px white
+      -webkit-text-fill-color: black
+      color: black
+
+    &:hover span.alt
+      -webkit-text-stroke: $gh-orange
+      -webkit-text-fill-color: $gh-orange
+      color: $gh-orange !important
+      opacity: 1 !important
+
+    +mobile
+      font-size: 7rem
+      transform: translateX(0)
+      margin: 2rem
+      text-align: right
+
+.updates-header
+  background-color: black
+  padding: 8rem 0
+
+  +mobile
+    padding: 7rem 0 5rem
+
+  h1
+    color: white
+    text-align: center
+    font-family: $family-heading
+    font-size: 7rem
+    text-transform: uppercase
+    margin-top: 3rem
+    margin-bottom: 2rem
+    line-height: 0.85
+
+    +mobile
+      font-size: 4rem
+
+    span
+      -webkit-text-stroke: 1.5px white
+      -webkit-text-fill-color: black
+      color: black
+
+  p.disclaimer
+    color: white
+    font-size: 1.2rem
+    text-align: center
+    margin-bottom: 2rem

@@ -1,0 +1,59 @@
+.gh-top-links
+  min-height: 400px
+  display: flex
+
+  +mobile
+    display: block
+  
+  a
+    border-right: 2px solid black
+    border-left: 2px solid black
+    flex: 1
+    text-align: center
+    display: flex
+    justify-content: center
+    align-self: stretch
+    align-items: center
+    font-family: $family-heading
+    font-size: 5rem
+    color: black
+    text-transform: uppercase
+
+    +mobile
+      min-height: 200px
+      border-right: 0px
+      border-left: 0px
+      border-top: 4px solid black
+      font-size: 3rem
+
+    +default-transition
+
+    &:hover
+      background-color: $gh-orange
+      color: white
+
+    span
+      position: relative
+      &:after
+        +default-transition
+        transition-delay: 200
+        content: ''
+        width: 40px
+        height: 40px
+        background-image: url(../../src/img/black-chevon-right.svg)
+        position: absolute
+        top: 1rem
+        right: -1rem
+        background-size: contain
+        background-repeat: no-repeat
+
+        +mobile
+          width: 20px
+          height: 20px
+          right: -0.5rem
+
+    &:hover span:after
+      top: 1rem
+      right: -1rem
+      width: 20px
+      height: 20px

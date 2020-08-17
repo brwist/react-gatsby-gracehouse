@@ -1,0 +1,49 @@
+.gh-now-playing
+  position: absolute
+  bottom: 0
+  right: 0
+  padding: 1rem
+  background-color: $gh-orange
+  cursor: pointer
+  display: inline-block
+  color: black
+
+  +mobile
+    width: 100%
+
+  &:hover
+    opacity: 1
+    color: black
+
+  &:hover .gh-now-playing-details__icon
+    transform: scale(1.1)
+
+  &__live
+    display: inline-block
+    padding: 0.15rem 0.75rem
+    font-family: $family-heading
+    background: black
+    color: white
+    animation: shadow-pulse 1s infinite
+
+.gh-now-playing-details
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  &__title
+    font-family: $family-heading
+    font-size: 3rem
+    text-transform: uppercase
+    line-height: 1
+    margin-right: 1.5rem
+
+  &__subtitle
+    font-family: $body-family
+    font-size: 1rem
+    text-transform: none
+
+  &__icon
+    transform: scale(1)
+    +default-transition
+  

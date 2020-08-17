@@ -1,0 +1,80 @@
+.gh-nav
+  display: flex
+  justify-content: space-between
+  position: absolute
+  top: 3rem
+  width: 100%
+  padding: 0 2rem
+  z-index: 3
+  align-items: center
+
+  +mobile
+    padding: 0 1rem
+
+  a.logo
+    position: absolute
+    width: 150px
+    height: 50px
+    background-image: url(../../src/img/white-logo-standalone.svg)
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center
+    left: 50%
+    transform: translateX(-50%)
+    font-size: 0px
+    +default-transition
+
+    &:hover
+      opacity: 0.8
+
+  ul
+    li
+      +touch
+        display: none
+      a.link
+        padding: 1rem
+        color: white
+
+        &:hover
+          color: $gh-orange !important
+          opacity: 1 !important
+
+.nav-mobile-menu
+  position: absolute
+  top: 0
+  bottom: 0
+  width: 100%
+  background-color: black
+  display: flex
+  align-items: center
+  justify-content: center
+  transition: visibility 1s $animation-cubic-beizer 0s, opacity 1s $animation-cubic-beizer
+  transition-delay: 0.1s
+  opacity: 0
+  z-index: 2
+  height: 100vh
+  left: 0
+  visibility: hidden
+
+  &--open
+    opacity: 1
+    visibility: visible
+
+  ul
+    li
+      text-align: center
+      margin-bottom: 1rem
+      opacity: 0
+      position: relative
+      top: 20px
+      a
+        color: white
+        font-size: 2.5rem
+        font-family: $family-heading
+        text-transform: uppercase
+        line-height: 1
+
+.top-nav-hamburger
+  display: none !important
+  +touch
+    display: inline-block !important
