@@ -90,13 +90,14 @@ class Footer extends React.Component {
                 </AniLink>
               </li>
               <li>
-                <OutboundLink
+                <AniLink
                   onMouseEnter={this.onHoverLink}
                   onMouseLeave={this.onLeaveLink}
-                  href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ"
+                  fade
+                  to="/sermons"
                 >
                   Sermons
-                </OutboundLink>
+                </AniLink>
               </li>
               <li>
                 <AniLink

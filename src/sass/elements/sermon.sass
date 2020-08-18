@@ -11,6 +11,8 @@
             display: flex
             align-items: center
             justify-content: center
+            +mobile
+                height: 550px
            
             .sermon-play-button
                 svg
@@ -30,6 +32,9 @@
             .sermon-title
                 width: 50%
                 padding: 2rem
+                +mobile
+                    width: 100%
+
                 h2
                     font-family: $family-heading
                     font-size: 6rem
@@ -37,6 +42,8 @@
                     margin-bottom: 2rem
                     line-height: 0.85
                     color: white
+                    +mobile
+                        font-size: 4rem
 
                     
                     .title-orange
@@ -47,6 +54,8 @@
             .description
                 width: 50%
                 padding: 2rem
+                +mobile
+                    width: 100%
                 p
                     
                     color: white
@@ -64,3 +73,5 @@
         margin: 4rem 0
         line-height: 0.85
         text-align: center
+        +mobile
+            font-size: 3rem

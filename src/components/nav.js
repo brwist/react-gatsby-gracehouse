@@ -181,9 +181,9 @@ class Nav extends React.Component {
               </AniLink>
             </li>
             <li>
-              <OutboundLink href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ">
+              <AniLink fade to="/sermons">
                 Sermons
-              </OutboundLink>
+              </AniLink>
             </li>
             <li>
               <AniLink fade to="/giving" onClick={() => this.closeNav()}>
