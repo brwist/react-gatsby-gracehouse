@@ -103,14 +103,15 @@ class Nav extends React.Component {
               >
                 What's On
               </AniLink>
-              <OutboundLink
+              <AniLink
                 onMouseEnter={this.onHoverLink}
                 onMouseLeave={this.onLeaveLink}
                 className="link"
-                href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ"
+                fade
+                to="/sermons"
               >
                 Sermons
-              </OutboundLink>
+              </AniLink>
             </li>
           </ul>
           <ul>

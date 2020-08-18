@@ -38,6 +38,7 @@
     "react-burger-menu": "^2.6.13",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.0",
+    "react-id-swiper": "^4.0.0",
     "react-input-mask": "^2.0.4",
     "react-modal-video": "^1.2.3",
     "react-slick": "^0.24.0",
@@ -46,6 +47,7 @@
     "setup": "0.0.3",
     "showdown": "^1.9.1",
     "slick-carousel": "^1.8.1",
+    "swiper": "^6.1.1",
     "toasted-notes": "^3.2.0"
   },
   "devDependencies": {
@@ -55,7 +57,7 @@
     "dotenv": "^8.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.19.0",
-    "gatsby": "^2.20.12",
+    "gatsby": "^2.24.47",
     "gh-pages": "^2.2.0",
     "inquirer": "^6.5.2",
     "prettier": "^1.19.1",

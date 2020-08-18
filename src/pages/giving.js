@@ -8,9 +8,9 @@ class Giving extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    var tw = create_tithely_widget();
-  }
+  // componentDidMount() {
+  //   var tw = create_tithely_widget();
+  // }
 
   render() {
     const { data } = this.props;

@@ -1,0 +1,74 @@
+.sermons-slider
+    transform: translateY(-50%)
+    +mobile
+        transform: translateY(0%)
+    .slide
+        opacity: 0.5
+        transition: .3s all linear
+        cursor: pointer
+        z-index: 20
+        padding: 2rem 0
+        +mobile
+            opacity: 1
+        &:hover
+            opacity: 1
+            transform: scale(1.1)
+            +mobile
+                transform: scale(1)
+            .content
+                h2
+                p
+                    display: block
+                button
+                    display: flex
+        .image
+            transition: .3s all linear
+            height: 280px
+            position: relative
+            background-size: cover
+        .content
+            position: absolute
+            top: 0
+            right: 0
+            bottom: 0
+            left: 0
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            color: white
+            background-color: rgba(0,0 ,0 ,0.5 )
+            padding: 2rem
+           
+            h2
+                color: white
+                text-transform: uppercase
+             
+                text-align: center
+                font-size: 2rem
+            p
+                font-weight: 600
+                display: none
+                +mobile 
+                    display: block
+            button
+                background-color: transparent
+                outline: none
+                border: 0
+                display: flex
+                align-items: center
+                color: white
+                font-weight: 600
+                display: none
+                cursor: pointer
+                +mobile
+                    display: flex
+                span
+                    
+                    margin-left: 10px
+
+        
+           
+
+           
+

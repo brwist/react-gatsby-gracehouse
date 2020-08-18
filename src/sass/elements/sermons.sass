@@ -1,0 +1,109 @@
+.sermons-header
+    background-color: black
+    padding: 8rem 0 7rem 0
+
+    +mobile
+        padding: 8rem 0 5rem
+.sermons-hero
+    display: flex
+    flex-wrap: wrap-reverse
+    .sermons-hero-social 
+        width: 50%
+        display: flex
+        justify-content: center
+        align-items: center
+        +mobile
+            width: 100%
+            
+        ul
+            li
+                display: flex
+                align-items: center
+                margin: 1.5rem 0
+                svg
+                    height: 30px
+                    width: 45px
+                span
+                    color: white
+
+    .sermons-hero-title
+        width: 50%
+        display: flex
+        align-items: center
+        +mobile
+            width: 100%
+            
+        h1
+            color: white
+        
+            font-family: $family-heading
+            font-size: 7rem
+            text-transform: uppercase
+            margin-top: 3rem
+            margin-bottom: 2rem
+            line-height: 0.85
+            +mobile
+                font-size: 4rem
+                text-align: center
+                width: 100%
+        span
+            -webkit-text-stroke: 1.5px white
+            -webkit-text-fill-color: black
+            color: black
+            display: block
+
+
+
+.sermons-middle
+    min-height: 850px
+    background: url(../img/sermons-hero-bg.png)
+   
+    background-size: 100% 850px
+    background-repeat: no-repeat
+    padding: 5rem 0 0 2rem
+    +mobile
+        min-height: 400px
+        background-size: 100% 400px
+        padding: 6rem 0 0 2rem
+    .sermon-title
+        color: white
+        h2
+          
+            font-family: $family-heading
+            font-size: 6rem
+            text-transform: uppercase
+            margin-bottom: 2rem
+            line-height: 0.85
+            +mobile
+                font-size: 4rem
+            
+            .title-orange
+                display : block
+                color: #F4B468
+        p 
+            font-weight: 600
+            
+        button
+            border: 0
+            outline: 0
+            background: black
+            color: white
+            margin: 2rem 0
+            min-width: 150px
+            min-height: 50px
+            display: flex
+            align-items: center
+            justify-content: center
+            cursor: pointer
+            span
+                margin-left: 10px
+                font-weight: 600
+
+
+
+
+
+          
+
+
+
