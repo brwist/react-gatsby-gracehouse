@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Slider from "react-id-swiper";
 import Img from "gatsby-image";
 import PlaySermon from "../img/icon/play.inline.svg";
+import { Link } from "gatsby";
 export class SermonsSlider extends Component {
   state = {
     slickSlider: null,
@@ -61,20 +62,22 @@ export class SermonsSlider extends Component {
 
             return (
               <div className="slide">
-                <div
-                  className="image"
-                  style={{
-                    backgroundImage: `url(${imageThumbnail.fluid.src})`,
-                  }}
-                >
-                  <div className="content">
-                    <h2>{title}</h2>
-                    <p>{reference}</p>
-                    <button>
-                      <PlaySermon /> <span> Play Sermon</span>
-                    </button>
+                <Link to={`/sermons/${slug}`}>
+                  <div
+                    className="image"
+                    style={{
+                      backgroundImage: `url(${imageThumbnail.fluid.src})`,
+                    }}
+                  >
+                    <div className="content">
+                      <h2>{title}</h2>
+                      <p>{reference}</p>
+                      <button>
+                        <PlaySermon /> <span> Play Sermon</span>
+                      </button>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
             );
           })}

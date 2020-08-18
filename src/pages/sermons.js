@@ -10,6 +10,7 @@ import PlaySermon from "../img/icon/play.inline.svg";
 import SermonsSlider from "../components/Sermons-Slider";
 import OurCommitment from "../components/our-commitment";
 import FindUsOn from "../components/find-us-on";
+import BackgroundImage from "gatsby-background-image";
 export default class Sermons extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +20,16 @@ export default class Sermons extends Component {
   render() {
     const { data } = this.props;
     const sermons = data?.allContentfulSermon?.nodes;
-    console.log(sermons);
+    const featured = sermons?.find(({ featured }) => !!featured);
+    const titlePart1 = featured?.title
+
+      ?.split(" ")
+      ?.slice(0, 3)
+      .join(" ");
+    const titlePart2 = featured?.title
+      ?.split(" ")
+      ?.slice(3)
+      .join(" ");
     return (
       <Layout>
         <Helmet>
@@ -60,15 +70,28 @@ export default class Sermons extends Component {
             </div>
           </div>
         </section>
-        <section className="sermons-middle">
-          <div className="sermon-title">
-            <h2>
-              Holiness Is A <span className="title-orange">Love Affair</span>
-            </h2>
-            <p>1 Peter 1:15-16</p>
-            <button>
-              <PlaySermon /> <span> Play Sermon</span>
-            </button>
+
+        <section className="sermons-middle-hero">
+          <div className="hero-background-wrapper">
+            <BackgroundImage
+              Tag="section"
+              fluid={featured?.imageThumbnail.fluid}
+              className="hero-background"
+              style={{
+                backgroundPositionY: "top",
+              }}
+            >
+              <div className="sermon-title">
+                <h2>
+                  {titlePart1}
+                  <span className="title-orange">{titlePart2}</span>
+                </h2>
+                <p>{featured.reference}</p>
+                <button>
+                  <PlaySermon /> <span> Play Sermon</span>
+                </button>
+              </div>
+            </BackgroundImage>
           </div>
         </section>
         <section>
@@ -97,9 +120,10 @@ export const pageQuery = graphql`
         createdAt
         id
         title
+        featured
         reference
         imageThumbnail {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 3000, quality: 100) {
             ...GatsbyContentfulFluid_withWebp
           }
         }
