@@ -95,7 +95,7 @@ export default class Sermons extends Component {
           </div>
         </section>
         <section>
-          <SermonsSlider data={sermons} />
+          <SermonsSlider data={sermons} isSermons />
         </section>
         <section className="container">
           <OurCommitment />

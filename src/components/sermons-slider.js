@@ -13,7 +13,7 @@ export class SermonsSlider extends Component {
     const handleSlide = (index) => {
       this.state.slickSlider.slickGoTo(index);
     };
-    const { data } = this.props;
+    const { data, isSermon, isSermons } = this.props;
     const settings = {
       speed: 500,
       spaceBetween: 20,
@@ -47,7 +47,11 @@ export class SermonsSlider extends Component {
     };
     console.log(data);
     return (
-      <div className="sermons-slider">
+      <div
+        className={`${
+          isSermons ? "sermon-slider sermons-slider" : "sermon-slider"
+        } `}
+      >
         <Slider
           {...settings}
           ref={(e) => {
@@ -61,7 +65,13 @@ export class SermonsSlider extends Component {
             const { title, reference, imageThumbnail, slug } = item;
 
             return (
-              <div className="slide">
+              <div
+                className={`${
+                  !isSermons
+                    ? "sermon-slider-slide sermons-slider-slide"
+                    : "sermon-slider-slide"
+                } `}
+              >
                 <Link to={`/sermons/${slug}`}>
                   <div
                     className="image"

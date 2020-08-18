@@ -2,7 +2,11 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Helmet from "react-helmet";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import BackgroundImage from "gatsby-background-image";
+import SermonsSlider from "../components/Sermons-Slider";
+import FindUsOn from "../components/find-us-on";
+import PlaySermon from "../img/icon/play.inline.svg";
 class Sermon extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +17,16 @@ class Sermon extends React.Component {
   render() {
     const { data } = this.props;
     const sermon = data.contentfulSermon;
+    const sermons = data?.allContentfulSermon?.nodes;
+    const titlePart1 = sermon?.title
 
+      ?.split(" ")
+      ?.slice(0, 3)
+      .join(" ");
+    const titlePart2 = sermon?.title
+      ?.split(" ")
+      ?.slice(3)
+      .join(" ");
     return (
       <Layout>
         <Helmet>
@@ -42,8 +55,37 @@ class Sermon extends React.Component {
               style={{
                 backgroundPositionY: "top",
               }}
-            ></BackgroundImage>
+            >
+              <div className="sermon-play-button">
+                <PlaySermon />
+              </div>
+            </BackgroundImage>
           </div>
+        </section>
+        <section className="single-sermon-middle ">
+          <div className="content container">
+            <div></div>
+            <div className="sermon-data">
+              <div className="sermon-title">
+                <h2>
+                  {titlePart1}{" "}
+                  <span className="title-orange">{titlePart2}</span>
+                </h2>
+                <p>{sermon.reference}</p>
+              </div>
+              <div className="description">
+                {documentToReactComponents(sermon?.description?.json)}
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="watch-more-sermons ">
+          <h2 className="watch-more-heading">Watch More Sermons</h2>
+
+          <SermonsSlider data={sermons} />
+        </section>
+        <section>
+          <FindUsOn />
         </section>
       </Layout>
     );
@@ -72,6 +114,24 @@ export const pageQuery = graphql`
       }
       description {
         json
+      }
+    }
+    allContentfulSermon(sort: { fields: createdAt, order: DESC }) {
+      nodes {
+        createdAt
+        id
+        title
+        featured
+        reference
+        imageThumbnail {
+          fluid(maxWidth: 3000, quality: 100) {
+            ...GatsbyContentfulFluid_withWebp
+          }
+        }
+        description {
+          json
+        }
+        slug
       }
     }
   }

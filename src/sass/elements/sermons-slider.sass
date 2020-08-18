@@ -1,13 +1,17 @@
-.sermons-slider
-    transform: translateY(-50%)
+.sermon-slider
+    &.sermons-slider
+        transform: translateY(-50%)
+    
     +mobile
         transform: translateY(0%)
-    .slide
+    .sermon-slider-slide
         opacity: 0.5
         transition: .3s all linear
         cursor: pointer
         z-index: 20
         padding: 2rem 0
+        &.sermons-slider-slide
+            opacity: 1
         +mobile
             opacity: 1
         &:hover
