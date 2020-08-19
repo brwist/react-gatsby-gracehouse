@@ -76,7 +76,9 @@ class Sermon extends React.Component {
         <section className="watch-more-sermons ">
           <h2 className="watch-more-heading">Watch More Sermons</h2>
 
-          <SermonsSlider data={sermons} />
+          <SermonsSlider
+            data={sermons.filter((item) => item?.id !== sermon?.id)}
+          />
         </section>
         <section>
           <FindUsOn />
@@ -116,6 +118,7 @@ export const pageQuery = graphql`
         createdAt
         id
         title
+        highlightedTitle
         featured
         reference
         imageThumbnail {

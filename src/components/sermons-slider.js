@@ -21,7 +21,7 @@ export class SermonsSlider extends Component {
       slidesPerView: 1.2,
       slidesToScroll: 1,
       arrows: false,
-      loop: true,
+
       afterChange: (e) => {
         this.setState({
           activeIndex: e,
@@ -73,6 +73,7 @@ export class SermonsSlider extends Component {
 
             return (
               <div
+                key={`/sermons/${slug}`}
                 className={`${
                   !isSermons
                     ? "sermon-slider-slide sermons-slider-slide"

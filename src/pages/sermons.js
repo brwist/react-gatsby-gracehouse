@@ -104,29 +104,30 @@ export default class Sermons extends Component {
 
         <section className="sermons-middle-hero">
           <div className="hero-background-wrapper">
-            <BackgroundImage
-              Tag="section"
-              fluid={featured?.imageThumbnail.fluid}
-              className="hero-background"
-              style={{
-                backgroundPositionY: "top",
-              }}
-            >
-              <div className="sermon-title container">
-                <h2>
-                  {featured?.title}
-                  <span className="title-orange">
-                    {featured?.highlightedTitle}
-                  </span>
-                </h2>
-                <p>{featured.reference}</p>
-                <AniLink fade to={`/sermons/${featured?.slug}`}>
+            <AniLink fade to={`/sermons/${featured?.slug}`}>
+              <BackgroundImage
+                Tag="section"
+                fluid={featured?.imageThumbnail.fluid}
+                className="hero-background"
+                style={{
+                  backgroundPositionY: "top",
+                }}
+              >
+                <div className="sermon-title container">
+                  <h2>
+                    {featured?.title}
+                    <span className="title-orange">
+                      {featured?.highlightedTitle}
+                    </span>
+                  </h2>
+                  <p>{featured.reference}</p>
+
                   <button>
                     <PlaySermon /> <span> Play Sermon</span>
                   </button>
-                </AniLink>
-              </div>
-            </BackgroundImage>
+                </div>
+              </BackgroundImage>
+            </AniLink>
           </div>
         </section>
         <section>
