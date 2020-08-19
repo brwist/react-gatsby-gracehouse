@@ -46,18 +46,6 @@ class Sermon extends React.Component {
 
         <section className="single-sermon-header">
           <div className="hero-background-wrapper">
-            {/* <BackgroundImage
-              Tag="section"
-              fluid={sermon?.imageThumbnail.fluid}
-              className="hero-background"
-              style={{
-                backgroundPositionY: "top",
-              }}
-            >
-              <div className="sermon-play-button">
-                <PlaySermon />
-              </div>
-            </BackgroundImage> */}
             <iframe
               className="background-video"
               src={`${sermon?.videoUrl}?autoplay=1&showinfo=0&controls=0&enablejsapi=1`}
@@ -150,11 +138,7 @@ export const pageQuery = graphql`
       title
       highlightedTitle
       reference
-      imageThumbnail {
-        fluid(maxWidth: 3000, quality: 100) {
-          ...GatsbyContentfulFluid_withWebp
-        }
-      }
+
       description {
         json
       }
@@ -168,11 +152,7 @@ export const pageQuery = graphql`
         highlightedTitle
         featured
         reference
-        imageThumbnail {
-          fluid(maxWidth: 3000, quality: 100) {
-            ...GatsbyContentfulFluid_withWebp
-          }
-        }
+
         description {
           json
         }

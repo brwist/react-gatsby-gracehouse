@@ -105,14 +105,6 @@ export default class Sermons extends Component {
         <section className="sermons-middle-hero">
           <div className="hero-background-wrapper">
             <AniLink fade to={`/sermons/${featured?.slug}`}>
-              {/* <BackgroundImage
-                Tag="section"
-                fluid={featured?.imageThumbnail.fluid}
-                className="hero-background"
-                style={{
-                  backgroundPositionY: "top",
-                }}
-              > */}
               <iframe
                 className="background-video"
                 src={`${featured?.videoUrl}?autoplay=1&showinfo=0&controls=0&mute=1 `}
@@ -166,11 +158,7 @@ export const pageQuery = graphql`
         title
         highlightedTitle
         reference
-        imageThumbnail {
-          fluid(maxWidth: 3000, quality: 100) {
-            ...GatsbyContentfulFluid_withWebp
-          }
-        }
+
         description {
           json
         }

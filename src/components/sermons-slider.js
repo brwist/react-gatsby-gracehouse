@@ -66,12 +66,15 @@ export class SermonsSlider extends Component {
             const {
               title,
               reference,
-              imageThumbnail,
+
               slug,
               highlightedTitle,
               videoUrl,
             } = item;
-
+            const videoId = videoUrl?.split("/");
+            const imageThumbnail = `https://img.youtube.com/vi/${
+              videoId[videoId.length - 1]
+            }/hqdefault.jpg`;
             return (
               <div
                 key={`/sermons/${slug}`}
@@ -85,7 +88,7 @@ export class SermonsSlider extends Component {
                   <div
                     className="image"
                     style={{
-                      backgroundImage: `url(${imageThumbnail.fluid.src})`,
+                      backgroundImage: `url(${imageThumbnail})`,
                     }}
                   >
                     <div className="content">
