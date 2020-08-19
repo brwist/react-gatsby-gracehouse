@@ -115,7 +115,7 @@ export default class Sermons extends Component {
               > */}
               <iframe
                 className="background-video"
-                src={`${featured?.videoUrl}?autoplay=1&showinfo=0&controls=0 `}
+                src={`${featured?.videoUrl}?autoplay=1&showinfo=0&controls=0&mute=1 `}
                 frameborder="0"
                 allowfullscreen="true"
                 allow="autoplay; encrypted-media"
