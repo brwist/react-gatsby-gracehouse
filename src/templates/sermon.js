@@ -69,22 +69,25 @@ class Sermon extends React.Component {
               <div>
                 <ul>
                   <li>
-                    <OutboundLink href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ/">
+                    <OutboundLink target="_blank" href={sermon?.youtubeLink}>
                       <Youtube />
                     </OutboundLink>
                   </li>
                   <li>
-                    <OutboundLink href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ/">
+                    <OutboundLink target="_blank" href={sermon?.spotifyLink}>
                       <Spotify />
                     </OutboundLink>
                   </li>
                   <li>
-                    <OutboundLink href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ/">
+                    <OutboundLink target="_blank" href={sermon?.appleLink}>
                       <ApplePodCasts />
                     </OutboundLink>
                   </li>
                   <li>
-                    <OutboundLink href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ/">
+                    <OutboundLink
+                      target="_blank"
+                      href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ/"
+                    >
                       <Download />
                     </OutboundLink>
                   </li>
@@ -138,7 +141,9 @@ export const pageQuery = graphql`
       title
       highlightedTitle
       reference
-
+      youtubeLink
+      spotifyLink
+      appleLink
       description {
         json
       }
@@ -150,9 +155,10 @@ export const pageQuery = graphql`
         id
         title
         highlightedTitle
-        featured
         reference
-
+        youtubeLink
+        spotifyLink
+        appleLink
         description {
           json
         }

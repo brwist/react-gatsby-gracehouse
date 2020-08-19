@@ -4,15 +4,16 @@ import Img from "gatsby-image";
 import PlaySermon from "../img/icon/play.inline.svg";
 import { Link } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+import ArrowRight from "../img/icon/arrow-right.inline.svg";
 export class SermonsSlider extends Component {
   state = {
-    slickSlider: null,
+    swiper: null,
     activeIndex: 0,
   };
 
   render() {
-    const handleSlide = (index) => {
-      this.state.slickSlider.slickGoTo(index);
+    const handleSlideNext = () => {
+      this.state.swiper.slideNext();
     };
     const { data, isSermon, isSermons } = this.props;
     const settings = {
@@ -21,6 +22,7 @@ export class SermonsSlider extends Component {
       slidesPerView: 1.2,
       slidesToScroll: 1,
       arrows: false,
+      loop: true,
 
       afterChange: (e) => {
         this.setState({
@@ -56,9 +58,9 @@ export class SermonsSlider extends Component {
         <Slider
           {...settings}
           ref={(e) => {
-            if (e && !this.state.slickSlider)
+            if (e && !this.state.swiper)
               this.setState({
-                slickSlider: e,
+                swiper: e.swiper,
               });
           }}
         >
@@ -106,6 +108,9 @@ export class SermonsSlider extends Component {
             );
           })}
         </Slider>
+        <span onClick={() => handleSlideNext()} className="arrow-right">
+          <ArrowRight />
+        </span>
       </div>
     );
   }

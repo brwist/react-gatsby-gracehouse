@@ -21,7 +21,12 @@
                 margin: 1.5rem 0
                 a
                     display: flex
-                    align-items: center 
+                    align-items: center
+                    transform: scale(1)
+                    transition: transform $animation-speed-default $animation-cubic-beizer
+                    cursor: pointer
+                    &:hover
+                        transform: scale(1.1)
                     svg
                         height: 30px
                         width: 45px

@@ -17,27 +17,23 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 export default class Sermons extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {};
   }
 
-  onHoverLink() {
-    anime({
-      targets: ".gh-nav .link",
-      opacity: 0.5,
-      easing: "cubicBezier(0.115, 0.61, 0.255, 1)",
-      delay: anime.stagger(100),
-    });
+  openModal() {
+    this.setState({ isOpen: true });
   }
 
-  onLeaveLink() {
+  componentDidMount() {
     anime({
-      targets: ".gh-nav .link",
+      targets: ".sermon-title",
       opacity: 1,
       easing: "cubicBezier(0.115, 0.61, 0.255, 1)",
-      delay: anime.stagger(100),
+      duration: 3000,
+      top: 0,
+      delay: anime.stagger(100, { start: 1000 }),
     });
   }
+
   render() {
     const { data } = this.props;
     const sermons = data?.allContentfulSermon?.nodes;
