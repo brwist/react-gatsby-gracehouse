@@ -62,6 +62,7 @@ export default class Sermons extends Component {
                   <OutboundLink
                     onMouseEnter={this.onHoverLink}
                     onMouseLeave={this.onLeaveLink}
+                    target="_blank"
                     href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ"
                   >
                     <Youtube />
@@ -70,9 +71,10 @@ export default class Sermons extends Component {
                 </li>
                 <li>
                   <OutboundLink
+                    target="_blank"
                     onMouseEnter={this.onHoverLink}
                     onMouseLeave={this.onLeaveLink}
-                    href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ"
+                    href="https://www.spotify.com/"
                   >
                     <Spotify />
                     <span>Spotify</span>
@@ -80,9 +82,10 @@ export default class Sermons extends Component {
                 </li>
                 <li>
                   <OutboundLink
+                    target="_blank"
                     onMouseEnter={this.onHoverLink}
                     onMouseLeave={this.onLeaveLink}
-                    href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ"
+                    href="https://apps.apple.com/us/app/apple-podcasts/id525463029"
                   >
                     <ApplePodCasts />
                     <span>Apple podcasts</span>
