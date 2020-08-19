@@ -42,7 +42,7 @@ export default class Sermons extends Component {
     const { data } = this.props;
     const sermons = data?.allContentfulSermon?.nodes;
     const featured = sermons?.find(({ featured }) => !!featured);
-
+    console.log(`${featured?.videoUrl}?autoplay=1&showinfo=0&controls=0 `);
     return (
       <Layout>
         <Helmet>
@@ -105,28 +105,35 @@ export default class Sermons extends Component {
         <section className="sermons-middle-hero">
           <div className="hero-background-wrapper">
             <AniLink fade to={`/sermons/${featured?.slug}`}>
-              <BackgroundImage
+              {/* <BackgroundImage
                 Tag="section"
                 fluid={featured?.imageThumbnail.fluid}
                 className="hero-background"
                 style={{
                   backgroundPositionY: "top",
                 }}
-              >
-                <div className="sermon-title container">
-                  <h2>
-                    {featured?.title}
-                    <span className="title-orange">
-                      {featured?.highlightedTitle}
-                    </span>
-                  </h2>
-                  <p>{featured.reference}</p>
+              > */}
+              <iframe
+                className="background-video"
+                src={`${featured?.videoUrl}?autoplay=1&showinfo=0&controls=0 `}
+                frameborder="0"
+                allowfullscreen="true"
+                allow="autoplay; encrypted-media"
+              ></iframe>
+              <div className="sermon-title container">
+                <h2>
+                  {featured?.title}
+                  <span className="title-orange">
+                    {featured?.highlightedTitle}
+                  </span>
+                </h2>
+                <p>{featured.reference}</p>
 
-                  <button>
-                    <PlaySermon /> <span> Play Sermon</span>
-                  </button>
-                </div>
-              </BackgroundImage>
+                <button>
+                  <PlaySermon /> <span> Play Sermon</span>
+                </button>
+              </div>
+              {/* </BackgroundImage> */}
             </AniLink>
           </div>
         </section>
@@ -169,6 +176,7 @@ export const pageQuery = graphql`
           json
         }
         slug
+        videoUrl
       }
     }
   }

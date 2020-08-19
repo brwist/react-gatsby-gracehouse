@@ -40,7 +40,7 @@ class Sermon extends React.Component {
 
         <section className="single-sermon-header">
           <div className="hero-background-wrapper">
-            <BackgroundImage
+            {/* <BackgroundImage
               Tag="section"
               fluid={sermon?.imageThumbnail.fluid}
               className="hero-background"
@@ -51,7 +51,14 @@ class Sermon extends React.Component {
               <div className="sermon-play-button">
                 <PlaySermon />
               </div>
-            </BackgroundImage>
+            </BackgroundImage> */}
+            <iframe
+              className="background-video"
+              src={`${sermon?.videoUrl}?autoplay=1&showinfo=0&controls=0&enablejsapi=1`}
+              frameborder="0"
+              allowfullscreen="true"
+              allow="autoplay; encrypted-media"
+            ></iframe>
           </div>
         </section>
         <section className="single-sermon-middle ">
@@ -112,6 +119,7 @@ export const pageQuery = graphql`
       description {
         json
       }
+      videoUrl
     }
     allContentfulSermon(sort: { fields: createdAt, order: DESC }) {
       nodes {
@@ -130,6 +138,7 @@ export const pageQuery = graphql`
           json
         }
         slug
+        videoUrl
       }
     }
   }

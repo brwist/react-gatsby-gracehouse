@@ -69,6 +69,7 @@ export class SermonsSlider extends Component {
               imageThumbnail,
               slug,
               highlightedTitle,
+              videoUrl,
             } = item;
 
             return (
