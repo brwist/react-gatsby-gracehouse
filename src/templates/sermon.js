@@ -121,9 +121,9 @@ export const pageQuery = graphql`
       }
       videoUrl
     }
-    allContentfulSermon(sort: { fields: createdAt, order: DESC }) {
+    allContentfulSermon(sort: { fields: date, order: DESC }) {
       nodes {
-        createdAt
+        date
         id
         title
         highlightedTitle

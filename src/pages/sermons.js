@@ -41,7 +41,7 @@ export default class Sermons extends Component {
   render() {
     const { data } = this.props;
     const sermons = data?.allContentfulSermon?.nodes;
-    const featured = sermons?.find(({ featured }) => !!featured);
+    const featured = sermons[0];
     console.log(`${featured?.videoUrl}?autoplay=1&showinfo=0&controls=0 `);
     return (
       <Layout>
@@ -158,14 +158,13 @@ export const pageQuery = graphql`
       }
     }
 
-    allContentfulSermon(sort: { fields: createdAt, order: DESC }) {
+    allContentfulSermon(sort: { fields: date, order: DESC }) {
       nodes {
-        createdAt
+        date
         id
         slug
         title
         highlightedTitle
-        featured
         reference
         imageThumbnail {
           fluid(maxWidth: 3000, quality: 100) {
