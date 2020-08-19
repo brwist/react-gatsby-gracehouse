@@ -17,11 +17,17 @@
         right: 30px
         cursor: pointer
         z-index: 100
+        +mobile
+            right: 10px
+            svg
+                width: 30px
     &.sermons-slider
         transform: translateY(-50%)
         &:hover
             .sermons-slider-slide,.sermon-slider-slide
                 opacity: 0.5
+                +mobile
+                    opacity: 1
     
     +mobile
         transform: translateY(0%)
