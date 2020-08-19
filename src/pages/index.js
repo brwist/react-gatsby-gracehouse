@@ -140,12 +140,9 @@ class RootIndex extends React.Component {
           </div>
         </section>
         <section className="gh-top-links">
-          <OutboundLink
-            target="_blank"
-            href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ"
-          >
+          <AniLink fade to="/sermons">
             <span>Sermons</span>
-          </OutboundLink>
+          </AniLink>
           <AniLink fade to="/contact">
             <span>Contact Us</span>
           </AniLink>

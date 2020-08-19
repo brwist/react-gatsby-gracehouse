@@ -26,6 +26,28 @@
 .single-sermon-middle
     background: black
     .content
+        .social-container
+            display: flex
+            justify-content: space-between
+            align-items: center
+            padding: 1rem 0 3rem 0
+
+            .go-back
+                display: flex
+                align-items: center
+                p
+                    color: white
+                    font-weight: 600
+                    margin-left: 10px
+            ul
+                display: flex
+                align-items: center
+                margin: 0
+                li
+                    margin-right: 25px
+                    svg
+                        width: 40px
+                        height: 32px
         .sermon-data
             display: flex
             flex-wrap: wrap
@@ -34,7 +56,7 @@
             
             .sermon-title
                 width: 50%
-                padding: 2rem
+                padding: 2rem 0
                 +mobile
                     width: 100%
 

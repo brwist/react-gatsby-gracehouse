@@ -6,7 +6,13 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import BackgroundImage from "gatsby-background-image";
 import SermonsSlider from "../components/Sermons-Slider";
 import FindUsOn from "../components/find-us-on";
-import PlaySermon from "../img/icon/play.inline.svg";
+import Youtube from "../img/icon/youtube-orange.inline.svg";
+import Spotify from "../img/icon/spotify-orange.inline.svg";
+import ApplePodCasts from "../img/icon/apple-orange.inline.svg";
+import Download from "../img/icon/download-orange.inline.svg";
+import GoBack from "../img/icon/arrow-left-orange.inline.svg";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 class Sermon extends React.Component {
   constructor(props) {
     super(props);
@@ -63,7 +69,40 @@ class Sermon extends React.Component {
         </section>
         <section className="single-sermon-middle ">
           <div className="content container">
-            <div></div>
+            <div className="social-container">
+              <AniLink fade to="/sermons">
+                <div className="go-back">
+                  <span>
+                    <GoBack />
+                  </span>
+                  <p>Back To Sermons</p>
+                </div>
+              </AniLink>
+              <div>
+                <ul>
+                  <li>
+                    <OutboundLink href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ/">
+                      <Youtube />
+                    </OutboundLink>
+                  </li>
+                  <li>
+                    <OutboundLink href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ/">
+                      <Spotify />
+                    </OutboundLink>
+                  </li>
+                  <li>
+                    <OutboundLink href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ/">
+                      <ApplePodCasts />
+                    </OutboundLink>
+                  </li>
+                  <li>
+                    <OutboundLink href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ/">
+                      <Download />
+                    </OutboundLink>
+                  </li>
+                </ul>
+              </div>
+            </div>
             <div className="sermon-data">
               <div className="sermon-title">
                 <h2>
