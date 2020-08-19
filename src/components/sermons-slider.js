@@ -3,6 +3,7 @@ import Slider from "react-id-swiper";
 import Img from "gatsby-image";
 import PlaySermon from "../img/icon/play.inline.svg";
 import { Link } from "gatsby";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 export class SermonsSlider extends Component {
   state = {
     slickSlider: null,
@@ -62,7 +63,13 @@ export class SermonsSlider extends Component {
           }}
         >
           {data?.map((item, index) => {
-            const { title, reference, imageThumbnail, slug } = item;
+            const {
+              title,
+              reference,
+              imageThumbnail,
+              slug,
+              highlightedTitle,
+            } = item;
 
             return (
               <div
@@ -72,7 +79,7 @@ export class SermonsSlider extends Component {
                     : "sermon-slider-slide"
                 } `}
               >
-                <Link to={`/sermons/${slug}`}>
+                <AniLink fade to={`/sermons/${slug}`}>
                   <div
                     className="image"
                     style={{
@@ -80,14 +87,16 @@ export class SermonsSlider extends Component {
                     }}
                   >
                     <div className="content">
-                      <h2>{title}</h2>
+                      <h2>
+                        {title} {highlightedTitle}
+                      </h2>
                       <p>{reference}</p>
                       <button>
                         <PlaySermon /> <span> Play Sermon</span>
                       </button>
                     </div>
                   </div>
-                </Link>
+                </AniLink>
               </div>
             );
           })}

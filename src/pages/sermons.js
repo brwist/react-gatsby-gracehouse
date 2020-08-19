@@ -11,25 +11,38 @@ import SermonsSlider from "../components/Sermons-Slider";
 import OurCommitment from "../components/our-commitment";
 import FindUsOn from "../components/find-us-on";
 import BackgroundImage from "gatsby-background-image";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
+import anime from "animejs/lib/anime.es.js";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 export default class Sermons extends Component {
   constructor(props) {
     super(props);
 
     this.state = {};
   }
+
+  onHoverLink() {
+    anime({
+      targets: ".gh-nav .link",
+      opacity: 0.5,
+      easing: "cubicBezier(0.115, 0.61, 0.255, 1)",
+      delay: anime.stagger(100),
+    });
+  }
+
+  onLeaveLink() {
+    anime({
+      targets: ".gh-nav .link",
+      opacity: 1,
+      easing: "cubicBezier(0.115, 0.61, 0.255, 1)",
+      delay: anime.stagger(100),
+    });
+  }
   render() {
     const { data } = this.props;
     const sermons = data?.allContentfulSermon?.nodes;
     const featured = sermons?.find(({ featured }) => !!featured);
-    const titlePart1 = featured?.title
 
-      ?.split(" ")
-      ?.slice(0, 3)
-      .join(" ");
-    const titlePart2 = featured?.title
-      ?.split(" ")
-      ?.slice(3)
-      .join(" ");
     return (
       <Layout>
         <Helmet>
@@ -50,16 +63,34 @@ export default class Sermons extends Component {
             <div className="sermons-hero-social">
               <ul>
                 <li>
-                  <Youtube />
-                  <span>Youtube</span>
+                  <OutboundLink
+                    onMouseEnter={this.onHoverLink}
+                    onMouseLeave={this.onLeaveLink}
+                    href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ"
+                  >
+                    <Youtube />
+                    <span>Youtube</span>
+                  </OutboundLink>
                 </li>
                 <li>
-                  <Spotify />
-                  <span>Spotify</span>
+                  <OutboundLink
+                    onMouseEnter={this.onHoverLink}
+                    onMouseLeave={this.onLeaveLink}
+                    href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ"
+                  >
+                    <Spotify />
+                    <span>Spotify</span>
+                  </OutboundLink>
                 </li>
                 <li>
-                  <ApplePodCasts />
-                  <span>Apple podcasts</span>
+                  <OutboundLink
+                    onMouseEnter={this.onHoverLink}
+                    onMouseLeave={this.onLeaveLink}
+                    href="https://www.youtube.com/channel/UC7ko9KyfJ5PS9eOuhjuWmbQ"
+                  >
+                    <ApplePodCasts />
+                    <span>Apple podcasts</span>
+                  </OutboundLink>
                 </li>
               </ul>
             </div>
@@ -81,15 +112,19 @@ export default class Sermons extends Component {
                 backgroundPositionY: "top",
               }}
             >
-              <div className="sermon-title">
+              <div className="sermon-title container">
                 <h2>
-                  {titlePart1}
-                  <span className="title-orange">{titlePart2}</span>
+                  {featured?.title}
+                  <span className="title-orange">
+                    {featured?.highlightedTitle}
+                  </span>
                 </h2>
                 <p>{featured.reference}</p>
-                <button>
-                  <PlaySermon /> <span> Play Sermon</span>
-                </button>
+                <AniLink fade to={`/sermons/${featured?.slug}`}>
+                  <button>
+                    <PlaySermon /> <span> Play Sermon</span>
+                  </button>
+                </AniLink>
               </div>
             </BackgroundImage>
           </div>
@@ -119,7 +154,9 @@ export const pageQuery = graphql`
       nodes {
         createdAt
         id
+        slug
         title
+        highlightedTitle
         featured
         reference
         imageThumbnail {
